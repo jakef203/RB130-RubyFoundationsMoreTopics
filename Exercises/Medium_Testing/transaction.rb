@@ -1,0 +1,42 @@
+require 'stringio'
+class Transaction
+  attr_reader :item_cost
+  attr_accessor :amount_paid
+
+  def initialize(item_cost)
+    @item_cost = item_cost
+    @amount_paid = 0
+  end
+
+  def prompt_for_payment(input: $stdin, output: $stdout)
+    loop do
+      output.puts "You owe $#{item_cost}.\nHow much are you paying?"
+      @amount_paid = input.gets.chomp.to_f
+      break if valid_payment? && sufficient_payment?
+      output.puts 'That is not the correct amount. ' \
+           'Please make sure to pay the full cost.'
+    end
+  end
+
+  private
+
+  def valid_payment?
+    amount_paid > 0.0
+  end
+
+  def sufficient_payment?
+    amount_paid >= item_cost
+  end
+end
+
+transaction = Transaction.new(30)
+# input = StringIO.new('30\n')
+# output = StringIO.new
+transaction.prompt_for_payment
+
+
+# snack = Transaction.new(5.50)
+# input = StringIO.new('2.3')
+# output = StringIO.new
+# snack.prompt_for_payment(input: input, output: output)
+# p output
