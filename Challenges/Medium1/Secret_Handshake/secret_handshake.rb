@@ -29,12 +29,13 @@ class SecretHandshake
       binary_string.prepend('0' * (5 - (binary_string.size)))
     end
     action_array = ['wink', 'double blink', 'close your eyes', 'jump']
-    return_array = []
-    action_array.zip(binary_string[1..].reverse.chars).each do |action, digit|
-      return_array << action if digit == '1'
+    # return_array = []
+    action_digit = binary_string[1..].reverse.chars
+    array = action_array.zip(action_digit).each_with_object([]) do |(action, digit), arr|
+      arr << action if digit == '1'
     end
-    return_array.reverse! if binary_string[0] == '1'
-    return_array
+    array.reverse! if binary_string[0] == '1'
+    array
   end
 
   private 
