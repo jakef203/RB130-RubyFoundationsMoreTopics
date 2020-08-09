@@ -28,8 +28,8 @@ class SecretHandshake
     if binary_string.size < 5
       binary_string.prepend('0' * (5 - (binary_string.size)))
     end
+    
     action_array = ['wink', 'double blink', 'close your eyes', 'jump']
-    # return_array = []
     action_digit = binary_string[1..].reverse.chars
     array = action_array.zip(action_digit).each_with_object([]) do |(action, digit), arr|
       arr << action if digit == '1'
