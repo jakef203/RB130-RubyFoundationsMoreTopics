@@ -21,34 +21,33 @@ class Octal
     sum
   end
 end
-octal = Octal.new('5555555555555555555555555')
-timeit { octal.to_decimal }
+
 
 ## Solution1 - I like this, very well done, I like the way he reversed it, simple
 
-class Octal
-  BASE = 8
-  INVALID_OCTAL = /\D|[8-9]/
+# class Octal
+#   BASE = 8
+#   INVALID_OCTAL = /\D|[8-9]/
 
-  attr_reader :octal_string
+#   attr_reader :octal_string
 
-  def initialize(octal_string)
-    @octal_string = octal_string
-  end
+#   def initialize(octal_string)
+#     @octal_string = octal_string
+#   end
 
-  def to_decimal
-    octal_string =~ INVALID_OCTAL ? 0 : calculate
-  end
+#   def to_decimal
+#     octal_string =~ INVALID_OCTAL ? 0 : calculate
+#   end
 
-  private
+#   private
 
-  def calculate
-    decimal = 0
-    octal_string.reverse.each_char.with_index do |char, index|
-      decimal += char.to_i * (BASE ** index)
-    end
-    decimal
-  end
+#   def calculate
+#     decimal = 0
+#     octal_string.reverse.each_char.with_index do |char, index|
+#       decimal += char.to_i * (BASE ** index)
+#     end
+#     decimal
+#   end
 
-end
+# end
 

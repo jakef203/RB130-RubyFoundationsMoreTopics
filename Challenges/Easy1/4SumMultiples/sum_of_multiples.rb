@@ -7,22 +7,22 @@
 ## For each multiple, add to total
 ## If a num in array_nums is greater than limit, go to next num in array
 
-def timeit
-  before = Time.now
-  yield
-  after = Time.now
-  puts "It took #{after - before} seconds."
-end
+# def timeit
+#   before = Time.now
+#   yield
+#   after = Time.now
+#   puts "It took #{after - before} seconds."
+# end
 
 # ## My original answer
-class SumOfMultiples1
+class SumOfMultiples
   attr_reader :factors
   def initialize(*factors)
     @factors = factors
   end
 
   def self.to(limit)
-    SumOfMultiples1.new(3, 5).to(limit)
+    SumOfMultiples.new(3, 5).to(limit)
   end
 
   def to(limit)
@@ -48,21 +48,21 @@ end
 # ## When using my solution for the same, limit, it goes faster with higher factors
 # ## Their solution1 doesn't change performance when changing numbers with the same limit since it still
 # ## iterates from 0 to limit and asks if it's a multiple of at least one of the given numbers
-class SumOfMultiples2
-  def self.to(limit, multiples = [3, 5])
-    (0...limit).select do |number|
-      multiples.any? { |multiple| number % multiple == 0 }
-    end.reduce(:+)
-  end
+# class SumOfMultiples2
+#   def self.to(limit, multiples = [3, 5])
+#     (0...limit).select do |number|
+#       multiples.any? { |multiple| number % multiple == 0 }
+#     end.reduce(:+)
+#   end
 
-  def initialize(*multiples)
-    @multiples = multiples
-  end
+#   def initialize(*multiples)
+#     @multiples = multiples
+#   end
 
-  def to(limit)
-    self.class.to(limit, @multiples)
-  end
-end
+#   def to(limit)
+#     self.class.to(limit, @multiples)
+#   end
+# end
 
 # class SumOfMultiples ## I adjusted their Solution2, using variable 'factors' instead of 'multiples'
 
@@ -87,11 +87,11 @@ end
 
 # sum1 = SumOfMultiples1.new
 # sum2 = SumOfMultiples2.new
-timeit { SumOfMultiples1.to(10000) }
-timeit { SumOfMultiples1.new(50, 60, 70).to(10000) }
-timeit { SumOfMultiples1.new(1111).to(10000) }
-timeit { SumOfMultiples2.to(10000) }
-timeit { SumOfMultiples2.new(50, 60, 70).to(10000) }
-timeit { SumOfMultiples2.new(1111).to(10000) }
+# timeit { SumOfMultiples1.to(10000) }
+# timeit { SumOfMultiples1.new(50, 60, 70).to(10000) }
+# timeit { SumOfMultiples1.new(1111).to(10000) }
+# timeit { SumOfMultiples2.to(10000) }
+# timeit { SumOfMultiples2.new(50, 60, 70).to(10000) }
+# timeit { SumOfMultiples2.new(1111).to(10000) }
 
 

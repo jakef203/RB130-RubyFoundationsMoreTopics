@@ -20,6 +20,8 @@ class TodoListTest < Minitest::Test
     @list.add(@todo3)
   end
 
+  ## Start here
+
   def test_to_a
     assert_equal(@todos, @list.to_a)
   end
@@ -90,6 +92,7 @@ class TodoListTest < Minitest::Test
 
   def test_item_at
     assert_raises(IndexError) { @list.item_at(100) }
+    assert_raises(ArgumentError) { @list.item_at }
     assert_equal(@todo1, @list.item_at(0))
     assert_equal(@todo2, @list.item_at(1))
   end

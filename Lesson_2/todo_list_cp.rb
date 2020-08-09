@@ -194,19 +194,20 @@ class TodoList
   end
 end
 
-todo1 = Todo.new("Clean room")
-todo2 = Todo.new("Buy milk")
-todo3 = Todo.new("Go to gym")
-list = TodoList.new("Today's Todos")
+# todo1 = Todo.new("Clean room")
+# todo2 = Todo.new("Buy milk")
+# todo3 = Todo.new("Go to gym")
+# list = TodoList.new("Today's Todos")
 
-list.add(todo1)
-list.add(todo2)
-list.add(todo3)
+# list.add(todo1)
+# list.add(todo2)
+# list.add(todo3)
+# list.item_at
+# list.add(2)
 # list.mark_done_at(0)
 # list.mark_done_at(1)
 # list.mark_done_at(2)
 
-p list.two_done?
 # p list.to_s
 
 # list.mark_done("Boy milk")

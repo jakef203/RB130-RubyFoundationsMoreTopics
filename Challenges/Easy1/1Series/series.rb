@@ -10,24 +10,24 @@
   #
 
 ## My solution
-# class Series
-#   def initialize(string_digits)
-#     @string_digits = string_digits
-#   end
+class Series
+  def initialize(string_digits)
+    @string_digits = string_digits
+  end
 
-#   def slices(slice_number)
-#     string_size = @string_digits.size
-#     raise ArgumentError if slice_number > string_size
-#     ending_index = string_size - slice_number
-#     array_digits = @string_digits.chars.map(&:to_i)
-#     result = []
-#     0.upto(ending_index) do |idx|
-#       result << array_digits[idx, slice_number]
-#     end
-#     result
-#   end
+  def slices(slice_number)
+    string_size = @string_digits.size
+    raise ArgumentError if slice_number > string_size
+    ending_index = string_size - slice_number
+    array_digits = @string_digits.chars.map(&:to_i)
+    result = []
+    0.upto(ending_index) do |idx|
+      result << array_digits[idx, slice_number]
+    end
+    result
+  end
 
-# end
+end
 
 # Top Solution
 
@@ -69,25 +69,25 @@
 # end
 
 #  Solution 3
-class Series
-  attr_reader :series
+# class Series
+#   attr_reader :series
 
-  def initialize(series)
-    @series = series.chars.map(&:to_i)
-  end
+#   def initialize(series)
+#     @series = series.chars.map(&:to_i)
+#   end
 
-  def slices(slice_size)
-    validate_input(slice_size)
+#   def slices(slice_size)
+#     validate_input(slice_size)
 
-    0.upto(series.size - slice_size).map { |position| series.slice(position, slice_size) }
-  end
+#     0.upto(series.size - slice_size).map { |position| series.slice(position, slice_size) }
+#   end
 
-  private
+#   private
 
-  def validate_input(size)
-    fail(ArgumentError, 'too big') if size > series.size
-  end
-end
+#   def validate_input(size)
+#     fail(ArgumentError, 'too big') if size > series.size
+#   end
+# end
 
 
 

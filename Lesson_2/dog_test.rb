@@ -11,4 +11,10 @@ class DogTestClass < Minitest::Test
     dog = Dog.new
     assert_equal(4, dog.legs)
   end
+
+  def test_bad_legs 
+    skip
+    dog = Dog.new 
+    assert_equal(4, dog.legs)
+  end
 end

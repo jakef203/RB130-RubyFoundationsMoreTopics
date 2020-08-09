@@ -108,15 +108,6 @@ class TodoList
     "#{@todos.map(&:to_s).join("\n")}"
   end
 
-  # def each 
-  #   counter = 0
-  #   while counter < todos.size 
-  #     yield(todos[counter])
-  #     counter += 1
-  #   end
-  #   @todos 
-  # end
-
   def each 
     @todos.each do |todo|
       yield(todo)
@@ -192,17 +183,17 @@ class TodoList
   end
 end
 
-todo1 = Todo.new("Boy milk")
-# hi = todo1.to_s
-# p hi
-todo2 = Todo.new("Buy milk")
-todo3 = Todo.new("Go to gym")
-list = TodoList.new("Today's Todos")
+# todo1 = Todo.new("Boy milk")
+# # hi = todo1.to_s
+# # p hi
+# todo2 = Todo.new("Buy milk")
+# todo3 = Todo.new("Go to gym")
+# list = TodoList.new("Today's Todos")
 
-list.add(todo1)
-list.add(todo2)
-list.add(todo3)
-list.say_hi
+# list.add(todo1)
+# list.add(todo2)
+# list.add(todo3)
+# list.say_hi
 # list.mark_done("Boy milk")
 # puts list
 # list.mark_undone("Boy milk")
